@@ -59,32 +59,74 @@ public class MainCalcActivity extends AppCompatActivity implements View.OnClickL
         double num1=Double.parseDouble(stNum1);
         double num2=Double.parseDouble(stNum2);
 
+        char chop=' ';
+
         if(view==btnPlus)
         {
-            //to react this event
+            //to react this event\
+            tvOp.setText("+");
+            chop='+';
         }
         if(view==btnMinus)
         {
+            tvOp.setText("-");
+            chop='-';
 
         }
         if(view==btnMul)
         {
+            tvOp.setText("Mul");
 
         }
         if(view==btnDiv)
         {
+            tvOp.setText("/");
 
         }
         if(view==btnPower)
         {
+            tvOp.setText("^");
 
         }
         if(view==btnCumpute)
         {
-
+            String op=tvOp.getText().toString();
+            double res=0;
+            if(chop=='+')
+            {
+                res=num1+num2;
+                etResult.setText(res+"");
+            }
+            switch (op)
+            {
+                case "+":
+                    res=num1+num2;
+                    etResult.setText(res+"");
+                    break;
+                case "-":
+                    res=num1-num2;
+                    etResult.setText(res+"");
+                    break;
+                case "Mul":
+                    res=num1*num2;
+                    etResult.setText(res+"");
+                    break;
+                case "/":
+                    res=num1/num2;
+                    etResult.setText(res+"");
+                    break;
+                case "^":
+                    res=Math.pow(num1,num2);
+                    etResult.setText(res+"");
+                    break;
+            }
         }
         if(view==btnClear)
         {
+            etNum1.setText("");
+            etNum2.setText("");
+            etResult.setText("");
+            tvOp.setText("?");
 
         }
     }
